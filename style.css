@@ -1,0 +1,199 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+    position: relative;
+}
+
+main {
+    width: 100vw;
+    height: 100vh;
+    background-image: linear-gradient(to right bottom, #5395ea, #5b8af1, #6d7df4, #856df2, #a057eb);
+    display: grid;
+    align-content: center;
+    justify-content: center;
+}
+
+.card {
+    height: 50rem;
+    width: 32rem;
+    background-color: #f9f9f9;
+    border-radius: 1rem;
+    box-shadow: 0 2px 1rem rgba(0, 0, 0, .6);
+    text-align: left;
+    color: rgba(0, 0, 0, .8);
+    font-size: 1.6rem;
+    position: relative;
+    transition: all 1s ease-out;
+}
+
+.heading {
+    font-size: 3rem;
+    font-weight: 700;
+    background-image: linear-gradient(to right, #8e2de2, #4a00e0);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.empty-list {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    text-align: center;
+}
+
+.empty-info {
+    margin-bottom: 2rem;
+}
+
+.idle {
+    width: 75%;
+    border-radius: 1rem;
+}
+
+.card-heading {
+    text-align: center;
+    margin: 2.5rem 0;
+}
+
+.items-list {
+    width: 80%;
+    height: 65%;
+    margin: 0 auto;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+    border-radius: 1rem;
+}
+
+.items-list::-webkit-scrollbar {
+    width: 0;
+}
+
+.list-items {
+    display: inline-block;
+    padding: 1.4rem;
+    line-height: 1.5;
+    border-top: 1px solid rgba(0, 0, 0, .2);
+    display: flex;
+    flex-direction: row;
+    cursor: pointer;
+}
+
+.list-items:last-child {
+    border-bottom: 1px solid rgba(0, 0, 0, .2);
+}
+
+.task-complete {
+    text-decoration: line-through;
+}
+
+.task-status {
+    margin-right: 1rem;
+    transform: translateY(-1px);
+    color: #8e2de2;
+    cursor: pointer;
+}
+
+.delete {
+    align-self: center;
+    color: rgba(0, 0, 0, .2);
+    transition: all .5s;
+}
+
+.delete:hover {
+    color: red;
+}
+
+li p {
+    width: 80%;
+}
+
+.new-item {
+    position: absolute;
+    bottom: 2rem;
+    left: 3rem;
+}
+
+.add-item {
+    outline: none;
+    border: none;
+    color: inherit;
+    background: inherit;
+    height: 4rem;
+    line-height: 2;
+    font-size: 1.6rem;
+    border-bottom: 1px solid rgba(0, 0, 0, .4);
+    transition: all .2s;
+}
+
+.add-item:hover {
+    border-bottom: 2px solid #8e2de2;
+}
+
+.add-item:focus {
+    border-bottom: 2px solid #8e2de2;
+}
+
+.add-item-icon {
+    display: inline-block;
+    padding: 1rem;
+    color: #ffffff;
+    background-color: #8e2de2;
+    border-radius: 100%;
+    box-shadow: 0 2px 6px rgba(142, 45, 226, 1);
+    margin-left: 1rem;
+    cursor: pointer;
+    position: relative;
+    z-index: 1;
+    transition: all .5s;
+}
+
+.add-item-icon::after {
+    content: "";
+    position: absolute;
+    display: inline-block;
+    width: 2.4rem;
+    height: 2.4rem;
+    padding: 1rem;
+    border-radius: 100%;
+    background-color: #8e2de2;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    transition: all .5s;
+}
+
+.add-item-icon:hover::after {
+    transform: scale(1.8);
+    opacity: 0;
+}
+
+.add-item-icon:hover {
+    transform: translateY(-3px);
+}
+
+.add-item-icon:active {
+    transform: translateY(0);
+    box-shadow: none;
+}
+
+@media (max-width: 600px) {
+    html{
+        font-size: 50%;
+    }
+}
