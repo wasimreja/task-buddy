@@ -78,6 +78,7 @@ main {
     flex-direction: column;
     overflow-y: scroll;
     border-radius: 1rem;
+    scrollbar-width: none;
 }
 
 .items-list::-webkit-scrollbar {
@@ -192,8 +193,26 @@ li p {
     box-shadow: none;
 }
 
-@media (max-width: 600px) {
-    html{
+@media (max-width: 75em) {
+    html {
+        font-size: 56.25%;
+    }
+}
+
+@media (max-width: 56.25em) {
+    html {
         font-size: 50%;
+    }
+}
+
+@media (max-width: 21.875em) {
+    html {
+        font-size: 35%;
+    }
+}
+
+@media (min-width: 112.5em) {
+    html {
+        font-size: 75%;
     }
 }
