@@ -3,6 +3,8 @@
 * {
     padding: 0;
     margin: 0;
+    box-sizing: border-box;
+
 }
 
 html {
@@ -10,7 +12,6 @@ html {
 }
 
 body {
-    box-sizing: border-box;
     font-family: 'Montserrat', sans-serif;
     position: relative;
 }
@@ -93,6 +94,7 @@ main {
     display: flex;
     flex-direction: row;
     cursor: pointer;
+    align-items: center;
 }
 
 .list-items:last-child {
@@ -105,13 +107,10 @@ main {
 
 .task-status {
     margin-right: 1rem;
-    transform: translateY(-1px);
     color: #8e2de2;
-    cursor: pointer;
 }
 
 .delete {
-    align-self: center;
     color: rgba(0, 0, 0, .2);
     transition: all .5s;
 }
@@ -139,7 +138,7 @@ li p {
     line-height: 2;
     font-size: 1.6rem;
     border-bottom: 1px solid rgba(0, 0, 0, .4);
-    transition: all .2s;
+    transition: all .5s;
 }
 
 .add-item:hover {
@@ -160,7 +159,7 @@ li p {
     margin-left: 1rem;
     cursor: pointer;
     position: relative;
-    z-index: 1;
+    z-index: 10;
     transition: all .5s;
 }
 
@@ -168,19 +167,20 @@ li p {
     content: "";
     position: absolute;
     display: inline-block;
-    width: 2.4rem;
-    height: 2.4rem;
+    width: 2.5rem;
+    height: 2.5rem;
     padding: 1rem;
     border-radius: 100%;
     background-color: #8e2de2;
-    z-index: -1;
-    top: 0;
-    left: 0;
+    z-index: -10;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1);
     transition: all .5s;
 }
 
 .add-item-icon:hover::after {
-    transform: scale(1.8);
+    transform: translate(-50%, -50%) scale(2);
     opacity: 0;
 }
 
