@@ -1,38 +1,30 @@
-let userInput = document.querySelector("input.add-item");
-	addButton = document.querySelector("i.add-item-icon");
-	taskList = document.querySelector("ul.items-list");
-	listItems = document.querySelectorAll("li");
-	listItemText = document.querySelectorAll("p");
-	statusIcon = document.querySelectorAll("i");
-	card = document.querySelector("div.card");
-	warning = document.querySelector("p.empty-info");
+let userInput = document.querySelector("input.add-item"),
+	taskList = document.querySelector("ul.items-list"),
+	card = document.querySelector("div.card"),
+	info = document.querySelector("p.empty-info"),
 	idleBackground = document.querySelector("img.idle");
 
-addButton.addEventListener("click", () => {
+function addNewTask() {
 
     if (userInput.value.trim() == "" && taskList.hasChildNodes() == false) {
 
-        card.style.backgroundColor = "#dbdabe";
-        card.style.color = "#686d76";
+        idleBackground.src = "images/angry.jpg";
+        const emptyStringResponse = () => {
+            card.style.backgroundColor = "#dbdabe";
+            card.style.color = "#686d76";
+            info.textContent = "Enter a proper task!";
+        }
+        idleBackground.onload = emptyStringResponse;
 
-        warning.textContent = "Come on, is that really a task?";
-
-        setTimeout( () => {
-            idleBackground.src = "images/angry.jpg";
-        }, 200);
-
-        console.log("Enter something first");
-
-    } else if (userInput.value.trim() == "" && taskList.hasChildNodes()) {
-        console.log("Nothing happens");
-    }
-
-    else {
+    } else if (userInput.value.trim() != "") {
 
         idleBackground.src = "images/relaxed.jpg";
-        warning.textContent = "No items in list, add some new";
-        card.style.backgroundColor = "#f9f9f9";
-        card.style.color = "rgba(0, 0, 0, .8)";
+        const properTaskAdded = () => {
+            card.style.backgroundColor = "#f9f9f9";
+            card.style.color = "rgba(0, 0, 0, .8)";
+            info.textContent = "No items in list, add some new";
+        }
+        idleBackground.onload = properTaskAdded;
 
         document.querySelector("div.empty-list").style.display = "none";
 
@@ -60,31 +52,31 @@ addButton.addEventListener("click", () => {
 
             newElement.addEventListener("click", () => {
 
-                for (let i = 0; i < listItemText.length; i++) {
-                    listItemText[i];
-
                     paragraph.classList.toggle("task-complete");
 
-                    if (taskList.hasChildNodes()) {
-                        console.log("There are tasks in list");
+                    if (paragraph.classList.contains("task-complete")) {
+                        icon.textContent = "check_circle";
                     } else {
+                        icon.textContent = "panorama_fish_eye";
+                    }
+                });
+
+                deleteIcon.addEventListener("click", () => {
+                    newElement.remove();
+
+                    if (taskList.hasChildNodes() == false) {
                         document.querySelector("div.empty-list").style.display = "block";
                     }
-                }
+                });
+            }
+        }
+        
+        document.querySelector("i.add-item-icon").addEventListener("click", () => {
+            addNewTask();
+        });
 
-                for (let j = 0; j < statusIcon.length; j++) {
-                    statusIcon[j];
-                }
-
-                if (paragraph.classList.contains("task-complete")) {
-                    icon.textContent = "check_circle";
-                } else {
-                    icon.textContent = "panorama_fish_eye";
-                }
-            });
-
-            deleteIcon.addEventListener("click", () => {
-                newElement.remove();
-            });
+        userInput.addEventListener("keydown", (e) => {
+            if (e.key === "Enter") {
+                addNewTask();
     }
 });
