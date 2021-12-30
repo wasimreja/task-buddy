@@ -80,6 +80,9 @@ main {
     overflow-y: scroll;
     border-radius: 1rem;
     scrollbar-width: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
 }
 
 .items-list::-webkit-scrollbar {
@@ -95,6 +98,7 @@ main {
     flex-direction: row;
     cursor: pointer;
     align-items: center;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .list-items:last-child {
@@ -126,7 +130,8 @@ li p {
 .new-item {
     position: absolute;
     bottom: 2rem;
-    left: 3rem;
+    width: 90%;
+    margin: 0 10%;
 }
 
 .add-item {
@@ -135,6 +140,7 @@ li p {
     color: inherit;
     background: inherit;
     height: 4rem;
+    width: 70%;
     line-height: 2;
     font-size: 1.6rem;
     border-bottom: 1px solid rgba(0, 0, 0, .4);
