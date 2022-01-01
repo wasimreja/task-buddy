@@ -17,8 +17,6 @@ body {
 }
 
 main {
-    width: 100vw;
-    height: 100vh;
     background-image: linear-gradient(to right bottom, #5395ea, #5b8af1, #6d7df4, #856df2, #a057eb);
     display: grid;
     align-content: center;
@@ -35,7 +33,7 @@ main {
     color: rgba(0, 0, 0, .8);
     font-size: 1.6rem;
     position: relative;
-    transition: all 1s ease-out;
+    margin: 10rem;
 }
 
 .heading {
@@ -107,6 +105,7 @@ main {
 
 .task-complete {
     text-decoration: line-through;
+    color: gray;
 }
 
 .task-status {
@@ -215,16 +214,7 @@ li p {
     html {
         font-size: 50%;
     }
-}
-
-@media (max-width: 600px) {
-    html {
-        font-size: 45%;
-    }
-}
-
-@media (max-width: 400px) {
-    html {
-        font-size: 42%;
+    .card {
+        margin: 20rem 0;
     }
 }
